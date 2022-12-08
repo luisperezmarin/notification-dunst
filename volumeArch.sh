@@ -32,6 +32,7 @@ case $1 in
       wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
     fi
       wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      volume=$(get_volume)
     dunstify -a "changeVolume" -u low -i ${iconSound} -h string:x-dunst-stack-tag:$msgTag \
     -h int:value:"$volume" "Volume: ${volume}%"
 	;;
@@ -40,6 +41,7 @@ case $1 in
       wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
     fi
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    volume=$(get_volume)
     dunstify -a "changeVolume" -u low -i ${iconSound} -h string:x-dunst-stack-tag:$msgTag \
     -h int:value:"$volume" "Volume: ${volume}%"
 	;;
